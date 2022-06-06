@@ -15,6 +15,7 @@ const Employee:FC<Props> = ({item}) => {
         <span>Пол: </span>{item.sex}<br></br>
         <span>Должность: </span>{item.position}<br></br>
         {item.subdivision_title !== undefined ? <span><span>Отдел: </span>{item.subdivision_title}</span> : null}
+        {item.supervisor_name !== undefined ? <span><span>Руководитель: </span>{item.supervisor_name}</span> : null}
       </div>
       <button className='delete-btn'>
         Удалить
