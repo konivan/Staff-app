@@ -2,9 +2,10 @@ import { Dispatch, SetStateAction } from "react";
 
 export enum actionTypes {
   STATE_INCREASE_ITEM = 'STATE_INCREASE_ITEM',
-  STATE_DECREASE_ITEM = 'STATE_DECREASE_ITEM',
-  SEARCH_CONTENT = 'SEARCH_CONTENT',
-  SORT_BY_POSITION = 'SORT_BY_POSITION',
+  SEARCH_BY_POSITION_AND_DIVISION = 'SEARCH_BY_POSITION_AND_DIVISION',
+  STATE_CHANGE_ITEM = 'STATE_CHANGE_ITEM',
+  STATE_DELETE_ITEM = 'STATE_DELETE_ITEM',
+  STATE_ADD_ITEM = 'STATE_ADD_ITEM',
 }
 
 interface StateAddItemPayload {
@@ -16,17 +17,27 @@ interface StateIncreaseItem {
   payload: StateAddItemPayload,
 }
 
-interface StateDecreaseItem {
-  type: actionTypes.STATE_DECREASE_ITEM,
-  payload: StateAddItemPayload,
-}
-
 interface SearchContent {
-  type: actionTypes.SEARCH_CONTENT,
+  type: actionTypes.SEARCH_BY_POSITION_AND_DIVISION,
   payload: string,
 }
 
-export type TypeActionState = StateIncreaseItem | StateDecreaseItem | SearchContent;
+interface StateChangeItem {
+  type: actionTypes.STATE_CHANGE_ITEM,
+  payload: StateAddItemPayload,
+}
+
+interface StateDeleteItem {
+  type: actionTypes.STATE_DELETE_ITEM,
+  payload: StateAddItemPayload,
+}
+
+interface StateAddItem {
+  type: actionTypes.STATE_ADD_ITEM,
+  payload: StateAddItemPayload,
+}
+
+export type TypeActionState = StateIncreaseItem | SearchContent | StateChangeItem | StateAddItem | StateDeleteItem;
 
 export interface StateItem {
   name: string,
