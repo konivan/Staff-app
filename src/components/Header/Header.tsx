@@ -8,6 +8,7 @@ const Header:FC = () => {
         <input className='header-input'
         placeholder='Поиск по должности или подразделению'
         type='search'/>
+        <button className='search-btn'>Поиск</button>
       </form>
     </header>
   );

@@ -13,7 +13,7 @@
   height: 40px;
   margin: 15px 20px;
   background-color: #dc3545;
-  border: 2px solid #4a2c2e;
+  border: 3px solid #4a2c2e;
   border-radius: 10px;
   padding: 3px 5px;
   color: #f7f7f7;
@@ -25,5 +25,5 @@
 .main-content {
   display: flex;
   flex-wrap: wrap;
-  width: 1200px;
+  width: 1000px;
 }
