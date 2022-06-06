@@ -113,10 +113,11 @@ const initialState: StateItem[] = [
 export const contentReducer = (state = initialState, action: TypeActionState) => {
   switch (action.type) {
     case actionTypes.STATE_INCREASE_ITEM: {
-      return state;
+      if (action.payload !== '') {
+      } else return state;
     }
     case actionTypes.STATE_DELETE_ITEM: {
-      return state;
+      return state.filter(item => item._id !== action.payload);
     }
     case actionTypes.STATE_ADD_ITEM: {
       return state;
@@ -126,7 +127,7 @@ export const contentReducer = (state = initialState, action: TypeActionState) =>
     }
     case actionTypes.SEARCH_BY_POSITION_AND_DIVISION: {
       if (action.payload !== '') {
-        return state.filter(state => state.name.toLowerCase().includes(action.payload.toLowerCase()));
+        return state.filter(state => state.position.toLowerCase().includes(action.payload.toLowerCase()));
       } else return state;
     }
     default:

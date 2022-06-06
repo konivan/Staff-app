@@ -1,12 +1,25 @@
 import React, { FC } from 'react';
 import { StateItem } from '../../store/state/types';
 import './Employee.css';
+import { deleteItem, increaseItem } from '../../store/state/actions';
+import { useDispatch } from 'react-redux';
 
 interface Props {
   item: StateItem,
 }
 
 const Employee:FC<Props> = ({item}) => {
+
+  const dispatch = useDispatch();
+
+  const removeHandler = (item :string) => {
+    dispatch(deleteItem(item))
+  }
+
+  const increaseHandler = (item :string) => {
+    dispatch(increaseItem(item))
+  }
+
   return (
     <div className='card'>
       <div className='card-info'>
@@ -17,11 +30,11 @@ const Employee:FC<Props> = ({item}) => {
         {item.subdivision_title !== undefined ? <span><span>Отдел: </span>{item.subdivision_title}</span> : null}
         {item.supervisor_name !== undefined ? <span><span>Руководитель: </span>{item.supervisor_name}</span> : null}
       </div>
-      <button className='delete-btn'>
+      <button className='delete-btn' onClick={() => removeHandler(item._id)}>
         Удалить
       </button>
       <button className='change-btn'>Изменить</button>
-      <button className='increase-btn'>Повысить</button>
+      <button className='increase-btn' onClick={() => increaseHandler(item._id)}>Повысить</button>
     </div>
   );
 };

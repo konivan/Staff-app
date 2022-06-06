@@ -14,7 +14,7 @@ interface StateAddItemPayload {
 
 interface StateIncreaseItem {
   type: actionTypes.STATE_INCREASE_ITEM,
-  payload: StateAddItemPayload,
+  payload: string,
 }
 
 interface SearchContent {
@@ -29,7 +29,7 @@ interface StateChangeItem {
 
 interface StateDeleteItem {
   type: actionTypes.STATE_DELETE_ITEM,
-  payload: StateAddItemPayload,
+  payload: string,
 }
 
 interface StateAddItem {

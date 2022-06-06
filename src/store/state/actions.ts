@@ -1,8 +1,8 @@
 import { StateItem, actionTypes } from './types';
 
-export const increaseItem = (itemId: StateItem) => ({
+export const increaseItem = (id: string) => ({
   type: actionTypes.STATE_INCREASE_ITEM,
-  payload: itemId,
+  payload: id,
 })
 
 export const searchItem = (value: string) => ({
@@ -15,9 +15,9 @@ export const changeItem = (item: StateItem) => ({
   payload: item,
 })
 
-export const deleteItem = (item: StateItem) => ({
+export const deleteItem = (id: string) => ({
   type: actionTypes.STATE_DELETE_ITEM,
-  payload: item,
+  payload: id,
 })
 
 export const addItem = (newItem: Object) => ({
