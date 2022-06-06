@@ -1,0 +1,26 @@
+
+.header {
+  background-color: #dc3545;
+  display: flex;
+  justify-content: center;
+}
+
+.header-form {
+  margin: 1.25rem;
+}
+
+.header-input {
+  display: block;
+  width: 23rem;
+  padding: .375rem 0.5rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 3px solid rgba(42, 42, 42, 0.819);
+  border-radius: .25rem;
+  text-align: center;
+  outline: none;
+}

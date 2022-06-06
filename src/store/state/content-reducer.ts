@@ -3,7 +3,7 @@ import { actionTypes, StateItem, TypeActionState } from './types';
 const initialState: StateItem[] = [
   {
     name: "Kondratev Ivan Andreevich",
-    birth_date: '12.09.2003',
+    birth_date: '12.09.2001',
     sex: 'male',
     position: 'director',
     _id: 'qwerty',
