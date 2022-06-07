@@ -145,6 +145,13 @@ export const contentReducer = (state = initialState, action: TypeActionState) =>
       return state1;
     }
     case actionTypes.STATE_CHANGE_ITEM: {
+      let { name, id, bd, sex, position, division, supervisor} = action.payload;
+      state[id].name = name;
+      state[id].birth_date = bd;
+      state[id].sex = sex;
+      state[id].position = position;
+      state[id].subdivision_title = division;
+      state[id].supervisor_name = supervisor;
       return state;
     }
     case actionTypes.SEARCH_BY_POSITION_AND_DIVISION: {

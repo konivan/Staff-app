@@ -10,9 +10,9 @@ export const searchItem = (value: string) => ({
   payload: value,
 })
 
-export const changeItem = (name: string, id: number) => ({
+export const changeItem = (name: string, bd: string, sex: string, position: string,  id: number, division?: string, supervisor?: string) => ({
   type: actionTypes.STATE_CHANGE_ITEM,
-  payload: { name, id }
+  payload: { name, bd, sex, position, id, division, supervisor}
 })
 
 export const deleteItem = (id: number) => ({
