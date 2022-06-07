@@ -11,8 +11,10 @@
 }
 
 .main-add-button {
-  height: 40px;
-  margin: 15px 20px;
+  position: relative;
+  left: 58px;
+  height: 50px;
+  width: 150px;
   background-color: #dc3545;
   border: 3px solid #4a2c2e;
   border-radius: 10px;
@@ -27,4 +29,30 @@
   display: flex;
   flex-wrap: wrap;
   width: 1000px;
+}
+
+.main-card {
+  width: 270px;
+  border: 3px solid #2c3034;
+  border-radius: 20px;
+  margin-top: 10px;
+  padding: 8px;
+  background-color: white;
+  position: absolute;
+  left: 150px;
+  top: 100px;
+}
+
+.main-card-info {
+  width: 400px;
+  font-weight: 600;
+}
+
+.main-card-info input {
+  display: flex;
+  border: 2px solid;
+  padding: 0.1rem 0.5rem;
+  border-radius: 15px;
+  outline: none;
+  font-weight: 600;
 }

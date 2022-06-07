@@ -24,17 +24,17 @@ interface SearchContent {
 
 interface StateChangeItem {
   type: actionTypes.STATE_CHANGE_ITEM,
-  payload: StateAddItemPayload,
+  payload: any,
 }
 
 interface StateDeleteItem {
   type: actionTypes.STATE_DELETE_ITEM,
-  payload: string,
+  payload: number,
 }
 
 interface StateAddItem {
   type: actionTypes.STATE_ADD_ITEM,
-  payload: StateAddItemPayload,
+  payload: any,
 }
 
 export type TypeActionState = StateIncreaseItem | SearchContent | StateChangeItem | StateAddItem | StateDeleteItem;
@@ -44,7 +44,7 @@ export interface StateItem {
   birth_date: string,
   sex: string,
   position: string,
-  _id: string,
+  _id: number,
   supervisor_name?: string,
   subdivision_title?: string,
 }

@@ -6,7 +6,9 @@
 }
 
 .header-form {
-  margin: 1.25rem;
+  margin: 1rem;
+  position: relative;
+  top: 10px;
 }
 
 .header-input {

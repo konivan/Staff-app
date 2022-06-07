@@ -6,14 +6,14 @@ const initialState: StateItem[] = [
     birth_date: '12.09.1990',
     sex: 'мужской',
     position: 'директор',
-    _id: 'qwerty',
+    _id: 0,
   },
   {
     name: "Ивановский Никита Русланович",
     birth_date: '10.08.2003',
     sex: 'мужской',
     position: 'руководитель подразделения',
-    _id: 'asdfg',
+    _id: 1,
     subdivision_title: 'Технологический',
   },
   {
@@ -21,7 +21,7 @@ const initialState: StateItem[] = [
     birth_date: '12.09.2003',
     sex: 'мужской',
     position: 'руководитель подразделения',
-    _id: 'yutyut',
+    _id: 2,
     subdivision_title: 'Исскуственного интеллекта',
   },
   {
@@ -29,14 +29,14 @@ const initialState: StateItem[] = [
     birth_date: '10.08.2001',
     sex: 'женский',
     position: 'контролер',
-    _id: 'vxcvcxv',
+    _id: 3,
   },
   {
     name: "Сиянский Александр Анотольевич",
     birth_date: '12.09.1992',
     sex: 'мужской',
     position: 'рабочий',
-    _id: 'jujuju',
+    _id: 4,
     supervisor_name: 'Ивановский Никита Русланович',
   },
   {
@@ -44,14 +44,14 @@ const initialState: StateItem[] = [
     birth_date: '10.08.1994',
     sex: 'мужской',
     position: 'контролер',
-    _id: 'cddcd',
+    _id: 5,
   },
   {
     name: "Дроздов Артём Михайлович",
     birth_date: '12.09.2001',
     sex: 'мужской',
     position: 'рабочий',
-    _id: 'sxsx',
+    _id: 6,
     supervisor_name: 'Малаев Никита Георгевич',
   },
   {
@@ -59,7 +59,7 @@ const initialState: StateItem[] = [
     birth_date: '12.09.1999',
     sex: 'мужской',
     position: 'рабочий',
-    _id: 'zaazaz',
+    _id: 7,
     supervisor_name: 'Малаев Никита Георгевич',
   },
   {
@@ -67,7 +67,7 @@ const initialState: StateItem[] = [
     birth_date: '12.09.1992',
     sex: 'женский',
     position: 'рабочий',
-    _id: 'dcdcc',
+    _id: 8,
     supervisor_name: 'Ивановский Никита Русланович',
   },
   {
@@ -75,7 +75,7 @@ const initialState: StateItem[] = [
     birth_date: '12.09.1995',
     sex: 'женский',
     position: 'рабочий',
-    _id: 'mmnnm',
+    _id: 9,
     supervisor_name: 'Малаев Никита Георгевич',
   },
   {
@@ -83,7 +83,7 @@ const initialState: StateItem[] = [
     birth_date: '12.09.2002',
     sex: 'женский',
     position: 'рабочий',
-    _id: 'kikiki',
+    _id: 10,
     supervisor_name: 'Малаев Никита Георгевич',
   },
   {
@@ -91,7 +91,7 @@ const initialState: StateItem[] = [
     birth_date: '12.09.1997',
     sex: 'мужской',
     position: 'рабочий',
-    _id: 'aqqa',
+    _id: 11,
     supervisor_name: 'Ивановский Никита Русланович',
   },
   {
@@ -99,35 +99,59 @@ const initialState: StateItem[] = [
     birth_date: '10.08.1985',
     sex: 'женский',
     position: 'контролер',
-    _id: 'awrrwq',
+    _id: 12,
   },
   {
     name: "Васильев Александр Алексеевич",
     birth_date: '10.08.2000',
     sex: 'мужской',
     position: 'контролер',
-    _id: 'mnmnmnmnm',
+    _id: 13,
   },
 ];
+
 
 export const contentReducer = (state = initialState, action: TypeActionState) => {
   switch (action.type) {
     case actionTypes.STATE_INCREASE_ITEM: {
-      if (action.payload !== '') {
+      const newState = [...state];
+      let { position, id }: any = action.payload;
+      if (position === "рабочий") {
+        newState[id].position = "контролер";
+        return newState;
+      } else if (position === "контролер") {
+        newState[id].position = "руководитель подразделения";
+        return newState;
+      } else if (position === "руководитель подразделения") {
+        newState[id].position = "директор";
+        return newState;
       } else return state;
     }
     case actionTypes.STATE_DELETE_ITEM: {
-      return state.filter(item => item._id !== action.payload);
+      return state.filter((item) => item._id !== action.payload);
     }
     case actionTypes.STATE_ADD_ITEM: {
-      return state;
+      const state1 = [...state];
+      let { name, bd, sex, position }:any = action.payload;
+
+      let newItem = {
+        name: name,
+        birth_date: bd,
+        sex: sex,
+        position: position,
+        _id: state.length,
+      }
+      state1.unshift(newItem);
+      return state1;
     }
     case actionTypes.STATE_CHANGE_ITEM: {
       return state;
     }
     case actionTypes.SEARCH_BY_POSITION_AND_DIVISION: {
-      if (action.payload !== '') {
-        return state.filter(state => state.position.toLowerCase().includes(action.payload.toLowerCase()));
+      if (action.payload !== "") {
+        return state.filter((state) =>
+          state.position.toLowerCase().includes(action.payload.toLowerCase())
+        );
       } else return state;
     }
     default:
