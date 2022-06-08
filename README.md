@@ -13,7 +13,7 @@
 
 ![first picture](./src/assets/preview.png)
 
-P.S(Новые сотрудники появляютя в низу)
+P.S(Новые сотрудники появляютя cнизу)
 
 ### `npm test`
 
