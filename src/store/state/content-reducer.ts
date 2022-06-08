@@ -157,9 +157,9 @@ export const contentReducer = (state = initialState, action: TypeActionState) =>
       return state;
     }
     case actionTypes.SEARCH_BY_POSITION_AND_DIVISION: {
-      if (action.payload !== "") {
+      if (action.payload.toLowerCase() === state[0].position || state[1].position || state[3].position || state[4].position) {
         return state.filter((state) =>
-          state.position.toLowerCase().includes(action.payload.toLowerCase())
+          state.position.toLowerCase().includes(action.payload.toLowerCase() )
         );
       } else return state;
     }

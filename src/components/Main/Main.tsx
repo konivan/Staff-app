@@ -54,7 +54,7 @@ const Main:FC = () => {
   }
 
   return (
-    <>
+    <div className='main-container'>
       <div className="main-card">
         <div className="main-card-info">
           <span>ФИО: </span>
@@ -94,7 +94,7 @@ const Main:FC = () => {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
