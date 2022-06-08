@@ -10,6 +10,9 @@
 ## Работающий проект(на всякий случай):
 # https://staff-app.vercel.app/
 
+
+![first picture](./src/assets/preview.png)
+
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
