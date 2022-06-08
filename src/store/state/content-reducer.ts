@@ -124,6 +124,7 @@ export const contentReducer = (state = initialState, action: TypeActionState) =>
         return newState;
       } else if (position === "руководитель подразделения") {
         newState[id].position = "директор";
+        console.log(id)
         return newState;
       } else return state;
     }
@@ -143,7 +144,7 @@ export const contentReducer = (state = initialState, action: TypeActionState) =>
         supervisor_name: supervisor,
         _id: state.length,
       }
-      state1.unshift(newItem);
+      state1.push(newItem);
       return state1;
     }
     case actionTypes.STATE_CHANGE_ITEM: {
@@ -157,9 +158,9 @@ export const contentReducer = (state = initialState, action: TypeActionState) =>
       return state;
     }
     case actionTypes.SEARCH_BY_POSITION_AND_DIVISION: {
-      if (action.payload.toLowerCase() === state[0].position || state[1].position || state[3].position || state[4].position) {
+      if (action.payload !== '') {
         return state.filter((state) =>
-          state.position.toLowerCase().includes(action.payload.toLowerCase() )
+          state.position.toLowerCase().includes(action.payload.toLowerCase())
         );
       } else return state;
     }

@@ -13,6 +13,8 @@
 
 ![first picture](./src/assets/preview.png)
 
+P.S(Новые сотрудники появляютя в низу)
+
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
