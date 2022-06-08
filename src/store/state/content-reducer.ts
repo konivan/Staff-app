@@ -10,7 +10,7 @@ const initialState: StateItem[] = [
   },
   {
     name: "Ивановский Никита Русланович",
-    birth_date: '10.08.2003',
+    birth_date: '10.10.1993',
     sex: 'мужской',
     position: 'руководитель подразделения',
     _id: 1,
@@ -18,7 +18,7 @@ const initialState: StateItem[] = [
   },
   {
     name: "Малаев Никита Георгевич",
-    birth_date: '12.09.2003',
+    birth_date: '01.01.1970',
     sex: 'мужской',
     position: 'руководитель подразделения',
     _id: 2,
@@ -132,13 +132,15 @@ export const contentReducer = (state = initialState, action: TypeActionState) =>
     }
     case actionTypes.STATE_ADD_ITEM: {
       const state1 = [...state];
-      let { name, bd, sex, position }:any = action.payload;
+      let { name, bd, sex, position, division, supervisor }:any = action.payload;
 
       let newItem = {
         name: name,
         birth_date: bd,
         sex: sex,
         position: position,
+        subdivision_title: division,
+        supervisor_name: supervisor,
         _id: state.length,
       }
       state1.unshift(newItem);

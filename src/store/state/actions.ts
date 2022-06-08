@@ -20,7 +20,7 @@ export const deleteItem = (id: number) => ({
   payload: id,
 })
 
-export const addItem = (name: string, bd: string, sex: string, position :string) => ({
+export const addItem = (name: string, bd: string, sex: string, position :string, division?:string, supervisor?:string) => ({
   type: actionTypes.STATE_ADD_ITEM,
-  payload: {name, bd, sex, position},
+  payload: {name, bd, sex, position, division, supervisor},
 })

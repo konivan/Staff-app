@@ -94,16 +94,16 @@ const Employee:FC<Props> = ({item}) => {
             placeholder={item.position}></input>) : (<span>{item.position}</span>)}<br></br>
         {item.subdivision_title !== undefined ? (
           <span>
-            <span>Отдел: </span>
+            <span>{item.subdivision_title === '' ? null : 'Отдел:'}</span>
             {changes === true ? (
               <input
                 className="change-input"
                 onChange={changeDivision}
                 placeholder={item.subdivision_title}></input>) : (<span>{item.subdivision_title}</span>)}
-          </span>) : null}
+          </span>) : null}<br></br>
         {item.supervisor_name !== undefined ? (
           <span>
-            <span>Руководитель: </span>
+            <span>{item.supervisor_name === '' ? null : 'Руководитель: '}</span>
             {changes === true ? (
               <input
                 className="change-input"
